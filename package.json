@@ -1,0 +1,20 @@
+{
+  "name": "innovative-creations",
+  "version": "1.0.0",
+  "description": "Innovative Creations online store - Node.js, Express and MySQL",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.11.5"
+  }
+}

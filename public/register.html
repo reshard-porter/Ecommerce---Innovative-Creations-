@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration | Innovative Creations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="top">
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-head">
+      <h1>Registration</h1>
+      <p>Where customer satisfaction comes first.</p>
+    </div>
+
+    <div class="container">
+      <form class="form-card" id="RegForm" novalidate>
+        <div class="alert" id="reg-alert" role="alert" hidden></div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <label for="Firstname">First name</label>
+            <input type="text" class="form-control" id="Firstname" name="Firstname" placeholder="Enter first name" autocomplete="given-name" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label for="Lastname">Last name</label>
+            <input type="text" class="form-control" id="Lastname" name="Lastname" placeholder="Enter last name" autocomplete="family-name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" autocomplete="email" required>
+        </div>
+        <fieldset class="form-group">
+          <legend class="control-label" style="font-size:14px;font-weight:700;border:0;margin:0 0 5px;">Gender</legend>
+          <label class="radio-inline"><input type="radio" name="optradio" value="Female"> Female</label>
+          <label class="radio-inline"><input type="radio" name="optradio" value="Male"> Male</label>
+        </fieldset>
+        <div class="form-group">
+          <label for="Typeselection">Type of user</label>
+          <select class="form-control" id="Typeselection" name="Typeselection">
+            <option value="Customer">Customer</option>
+            <option value="Business Owner">Business Owner</option>
+          </select>
+        </div>
+        <div class="form-group" id="owner-code-group" hidden>
+          <label for="ownerCode">Business access code</label>
+          <input type="password" class="form-control" id="ownerCode" name="ownerCode" autocomplete="off">
+          <p class="help-block small">Business Owner accounts can manage the store. Ask the site administrator for the code.</p>
+        </div>
+        <div class="form-group">
+          <label for="pwd1">Password</label>
+          <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+        </div>
+        <div class="form-group">
+          <label for="pwd2">Confirm password</label>
+          <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Confirm password" autocomplete="new-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+        <p class="form-foot">Already have an account? <a href="/login">Log in</a></p>
+      </form>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/register.js"></script>
+</body>
+</html>

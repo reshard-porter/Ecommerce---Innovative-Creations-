@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart | Innovative Creations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="top">
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-head">
+      <h1>Your cart</h1>
+      <p>Review your items and check out.</p>
+    </div>
+
+    <div class="container section">
+      <div class="alert" id="cart-alert" role="alert" hidden></div>
+      <p class="empty-state" id="cart-empty" hidden>Your cart is empty. <a href="/#products">Browse products</a></p>
+      <div id="cart-content" hidden>
+        <div class="table-responsive">
+          <table class="table cart-table">
+            <thead>
+              <tr><th>Product</th><th>Price</th><th>Quantity</th><th class="text-right">Total</th><th><span class="sr-only">Remove</span></th></tr>
+            </thead>
+            <tbody id="cart-rows"></tbody>
+          </table>
+        </div>
+        <p class="cart-summary">Total: <strong id="cart-total">$0.00</strong></p>
+        <div class="text-right">
+          <a href="/#products" class="btn btn-default">Continue shopping</a>
+          <button type="button" class="btn btn-dark" id="checkout-btn">Check out</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

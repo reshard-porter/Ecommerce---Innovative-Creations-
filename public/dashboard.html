@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Innovative Creations</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="top">
+  <div id="site-header"></div>
+
+  <main>
+    <div class="page-head">
+      <h1>Dashboard</h1>
+      <p>Manage your products, orders and customer messages.</p>
+    </div>
+    <div class="container section">
+      <div class="alert" id="dash-alert" role="alert" hidden></div>
+      <div id="dash-content" hidden>
+        <div class="row stats" id="stats"></div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#tab-products" role="tab" data-toggle="tab">Products</a></li>
+          <li role="presentation"><a href="#tab-orders" role="tab" data-toggle="tab">Orders</a></li>
+          <li role="presentation"><a href="#tab-messages" role="tab" data-toggle="tab">Messages</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tab-products">
+            <div class="tab-toolbar">
+              <label for="product-filter" class="sr-only">Filter products</label>
+              <input type="search" id="product-filter" class="form-control product-filter" placeholder="Filter by name or category">
+              <span class="text-muted small" id="product-count"></span>
+              <button type="button" class="btn btn-dark" id="add-product-btn"><span class="glyphicon glyphicon-plus"></span> Add product</button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover cart-table">
+                <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th class="text-right">Actions</th></tr></thead>
+                <tbody id="product-rows"></tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tab-orders">
+            <p class="empty-state" id="admin-orders-empty" hidden>No orders yet.</p>
+            <div id="admin-orders"></div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tab-messages">
+            <p class="empty-state" id="messages-empty" hidden>No messages yet.</p>
+            <div id="messages"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add / edit product -->
+  <div class="modal fade" id="product-form-modal" tabindex="-1" role="dialog" aria-labelledby="product-form-title">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content" id="product-form" novalidate>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="product-form-title">Add product</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert" id="product-form-alert" role="alert" hidden></div>
+          <input type="hidden" name="id">
+          <div class="form-group">
+            <label for="pf-name">Name</label>
+            <input class="form-control" id="pf-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="pf-category">Category</label>
+            <input class="form-control" id="pf-category" name="category" list="category-options" placeholder="Pick one or type a new category">
+            <datalist id="category-options"></datalist>
+          </div>
+          <div class="form-group">
+            <label for="pf-description">Description</label>
+            <textarea class="form-control" id="pf-description" name="description" rows="3"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 form-group">
+              <label for="pf-price">Price ($)</label>
+              <input class="form-control" id="pf-price" name="price" type="number" min="0.01" step="0.01" required>
+            </div>
+            <div class="col-xs-4 form-group">
+              <label for="pf-sale">Sale price ($)</label>
+              <input class="form-control" id="pf-sale" name="salePrice" type="number" min="0.01" step="0.01" placeholder="Optional">
+            </div>
+            <div class="col-xs-4 form-group">
+              <label for="pf-stock">Stock</label>
+              <input class="form-control" id="pf-stock" name="stock" type="number" min="0" step="1" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pf-image">Image URL</label>
+            <input class="form-control" id="pf-image" name="imageUrl" placeholder="https://... or /img/your-photo.jpg">
+            <p class="help-block small">Paste a link to a photo, or put the file in <code>public/img/</code> and enter <code>/img/filename.jpg</code>.</p>
+            <div class="image-preview" id="pf-preview"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-dark">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/orders.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

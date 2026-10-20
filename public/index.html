@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Innovative Creations</title>
+  <meta name="description" content="Innovative Creations - where customer satisfaction comes first.">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body id="top">
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Hero carousel -->
+    <div id="hero" class="carousel slide hero" data-ride="carousel" data-interval="6000">
+      <ol class="carousel-indicators">
+        <li data-target="#hero" data-slide-to="0" class="active"></li>
+        <li data-target="#hero" data-slide-to="1"></li>
+        <li data-target="#hero" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1605217613423-0a61bd725c8a?auto=format&fit=crop&w=1600&q=70')">
+            <h2>Innovative Creations<br>Where customer satisfaction comes first.</h2>
+            <a href="#products" class="btn btn-outline">Shop new products</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1600&q=70')">
+            <h2>Handmade pieces at sale prices</h2>
+            <a href="#sales" class="btn btn-outline">See the sales</a>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=70')">
+            <h2>Create an account to check out faster</h2>
+            <a href="/register" class="btn btn-outline">Sign up</a>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#hero" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#hero" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- New products -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2 class="section-title" id="products-title">New Products</h2>
+        <p class="section-sub" id="products-sub">Fresh additions to the shop.</p>
+        <div class="grid-toolbar">
+          <span class="text-muted" id="products-count"></span>
+          <span>
+            <a href="/#products" class="btn btn-default btn-sm" id="filter-bar" hidden>Clear filter &times;</a>
+            <label for="sort-select" class="sr-only">Sort products</label>
+            <select id="sort-select" class="form-control input-sm sort-select">
+              <option value="newest">Newest</option>
+              <option value="price_asc">Price: low to high</option>
+              <option value="price_desc">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </span>
+        </div>
+        <div class="row product-grid" id="product-grid"></div>
+        <p class="empty-state" id="products-empty" hidden>No products found.</p>
+        <div class="grid-actions">
+          <button type="button" class="btn btn-outline" id="more-btn" hidden>More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sales -->
+    <section id="sales" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Sales</h2>
+        <p class="section-sub">Limited-time prices on selected items.</p>
+        <div class="row product-grid" id="sales-grid"></div>
+        <p class="empty-state" id="sales-empty" hidden>No sales right now - check back soon.</p>
+        <div class="grid-actions"><a href="/?sale=1#products" class="btn btn-outline" id="all-sales-btn" hidden>See all sales</a></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">Questions about an order or a product? Send us a message.</p>
+        <div class="row">
+          <div class="col-sm-4">
+            <p><span class="glyphicon glyphicon-map-marker"></span> Kingston, Jamaica</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> hello@innovativecreations.example</p>
+          </div>
+          <div class="col-sm-8">
+            <form id="contact-form" novalidate>
+              <div class="alert" id="contact-alert" role="alert" hidden></div>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <label for="contact-name">Name</label>
+                  <input class="form-control" id="contact-name" name="name" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label for="contact-email">Email</label>
+                  <input class="form-control" id="contact-email" name="email" type="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea class="form-control" id="contact-message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product details -->
+  <div class="modal fade product-modal" id="product-modal" tabindex="-1" role="dialog" aria-labelledby="product-modal-title">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="product-modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <div class="product-modal-image" id="product-modal-image"></div>
+          <p class="text-muted" id="product-modal-category"></p>
+          <p id="product-modal-description"></p>
+          <p class="price-line" id="product-modal-price"></p>
+          <p class="text-muted small" id="product-modal-stock"></p>
+          <div class="alert" id="product-modal-alert" role="alert" hidden></div>
+        </div>
+        <div class="modal-footer">
+          <label for="product-modal-qty" class="sr-only">Quantity</label>
+          <input type="number" min="1" value="1" class="form-control qty-input" id="product-modal-qty">
+          <button type="button" class="btn btn-dark" id="product-modal-add">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>
